@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+
+    <title>Upload de Imagem e Visualizador de Galeria</title>
+</head>
+<body>
+    <nav class="nav">
+        <ul class="nav-list">
+            <li><a href="#upload">Upload</a></li>
+            <li><a href="#widget">Widget</a></li>
+            <li><a href="#gallery">Galeria</a></li>
+        </ul>
+    </nav>
+
+    <section id="upload" class="upload">
+        <h2>Upload de Imagem - Forma Padrão</h2>
+        <p>Escolha uma imagem e faça o upload.</p>
+        <input type="file" id="imageFileInput" accept=".jpg,.jpeg,.png,.webp,.svg,.avif" style="display: none;" onchange="handleFileChange(event)"/>
+        <p id="selectedFileName" class="file-name"></p>
+        <img id="imagePreview" src="" alt="Prévia da Imagem" class="image-preview hidden" />
+        <div class="button-container">
+            <button class="button" id="chooseButton" onclick="document.getElementById('imageFileInput').click()">
+                Escolher Imagem
+            </button>
+            <button class="button" id="uploadButton" onclick="uploadToCloudinary()">
+                Fazer Upload
+            </button>
+        </div>
+    </section>
+
+    <section id="widget" class="widget">
+        <h2>Upload de Imagem - Utilizando Widget</h2>
+        <p>Utilize o widget de upload da Cloudinary para escolher uma imagem. Ele possui vários recursos para selecionar e obter uma imagem, além de permitir cortá-la antes de realizar o upload.</p>
+        <button class="button" onclick="openUploadWidget()">Abrir Widget</button>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <h2>Galeria de imagens</h2>
+        <p>Imagens que foram salvas utilizando este site (Limite máximo definido para exibição de 100 imagens):</p>
+        <div id="imageGallery" class="image-gallery"></div>
+    </section>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
